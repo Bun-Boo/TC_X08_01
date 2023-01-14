@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({extended : false}))
 app.use(bodyParser.json())
-// app.use(errorHandler);
+app.use(errorHandler);
 
 const connect = () =>
   mongoose
