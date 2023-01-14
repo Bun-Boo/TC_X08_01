@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({extended : false}))
 app.use(bodyParser.json())
-// app.use(errorHandler);
+app.use(errorHandler);
 
 
 app.use("/api/test", TestRouters);
