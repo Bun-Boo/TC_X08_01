@@ -1,0 +1,78 @@
+.container-sidebar {
+    width: 20%;
+}
+
+.container-top {
+    margin: 25px 50px;
+    padding-bottom: 30px;
+    width: 80%;
+    text-align: left;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.container-top div {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.container-top div:hover {
+    background-color: #84c9fe;
+    cursor: pointer;
+}
+
+.container-top div p {
+    margin-left: 10px;
+}
+
+.container-bottom {
+    margin-left: 50px;
+}
+
+.container-bottom .sub-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-bottom .sub-title p {
+    font-size: 1rem;
+}
+
+.container-bottom .icon-plus:hover {
+    cursor: pointer;
+}
+
+.container-bottom .space {
+    margin-top: 20px;
+}
+
+.container-bottom .space div {
+    display: flex;
+    align-items: center;
+}
+
+.container-bottom .space div > p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.container-bottom .space div + div {
+    margin-top: 10px;
+}
+
+.container-bottom .space p {
+    margin-left: 10px;
+}
+
+.container-bottom .space button {
+    background: rgb(255, 100, 62);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 100, 62, 1) 0%,
+        rgba(35, 56, 187, 1) 85%
+    );
+    color: #ffffff;
+    border-radius: 5px;
+}

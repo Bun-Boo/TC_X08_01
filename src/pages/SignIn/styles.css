@@ -1,0 +1,100 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container .sign-in {
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.container .sign-in .image-logo {
+    width: 100px;
+    height: 100px;
+
+    margin: 20px auto 25px;
+}
+
+.container .sign-in .image-logo .logo {
+    width: 100%;
+    height: 100%;
+}
+
+.container .sign-in form {
+    margin: 0 50px;
+}
+.container .sign-in .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container .sign-in .info input {
+    width: 100%;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    font-style: italic;
+}
+
+.container .sign-in .btn {
+    margin-top: 15px;
+    width: 150px;
+    padding: 15px 20px;
+}
+
+.container .sign-in p {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.container .sign-in p a {
+    margin-left: 10px;
+}
+
+.container .sign-in .btn-social {
+    margin: 0px 50px;
+    flex-direction: column;
+}
+
+.container .sign-in .btn-social .btn {
+    width: 100%;
+    padding: 10px;
+    font-style: italic;
+    font-weight: 100;
+    background-color: #ffffff;
+    color: rgb(135, 135, 135);
+    border: 2px solid var(--primary-color);
+}
+
+.container .sign-in .line-left,
+.container .sign-in .line-right {
+    position: relative;
+}
+
+.container .sign-in .line-left::before {
+    position: absolute;
+    top: -6px;
+    left: 50px;
+    content: "";
+    display: inline-block;
+    width: 100px;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 12px;
+}
+
+.container .sign-in .line-right::before {
+    position: absolute;
+    top: -6.5px;
+    left: 250px;
+    content: "";
+    display: inline-block;
+    width: 100px;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 12px;
+}

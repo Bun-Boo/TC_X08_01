@@ -1,0 +1,108 @@
+.hero-wrap {
+    position: relative;
+    height: calc(100vh - 75px);
+}
+
+.hero-wrap .content {
+    padding-top: 100px;
+}
+
+.hero-wrap .title {
+    margin-left: auto;
+    width: 370px;
+    min-width: 370px;
+    text-align: right;
+    margin-top: 8px;
+    font-size: 3.2rem;
+    line-height: 1.19;
+    color: #000336;
+}
+
+.hero-wrap .desc {
+    position: relative;
+    margin-left: auto;
+    width: 450px;
+    /* min-width: 370px; */
+    text-align: right;
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.78;
+    color: #5a6473;
+}
+
+.hero-wrap .desc::before {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    /* transform: translateX(-50%); */
+    content: "";
+    display: inline-block;
+    width: 150px;
+    height: 2px;
+    background: #000339;
+    border-radius: 12px;
+}
+
+.hero-wrap .action {
+    text-align: right;
+}
+
+.hero-wrap .btn {
+    width: 110px;
+    min-width: 110px;
+    padding: 10px 10px;
+}
+
+.hero-desc .image-1 {
+    position: absolute;
+    bottom: 150px;
+    left: 200px;
+    width: 300px;
+    height: 200px;
+    border: 5px solid;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.hero-desc .image-2 {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 300px;
+    height: 200px;
+    border: 5px solid;
+    border-radius: 20px;
+    z-index: -2;
+}
+
+.hero-desc .advantage a {
+    display: inline-block;
+    min-width: 300px;
+    background: var(--secondary-color);
+    border-radius: 50px;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px 10px;
+    z-index: 0;
+}
+
+.hero-desc .advantage-1 {
+    position: absolute;
+    bottom: 280px;
+    left: 10px;
+}
+
+.hero-desc .advantage-2 {
+    position: absolute;
+    bottom: 100px;
+    left: 200px;
+    z-index: 0;
+}
+
+.hero-desc .advantage-3 {
+    position: absolute;
+    bottom: 0px;
+    left: 300px;
+    z-index: 0;
+}

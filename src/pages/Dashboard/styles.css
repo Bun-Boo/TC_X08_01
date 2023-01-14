@@ -1,0 +1,60 @@
+.container {
+    width: 100%;
+}
+.container .dashboard {
+    display: flex;
+}
+
+.dashboard h2 {
+    margin: 40px 20px;
+}
+
+.dashboard .dashboard-list {
+    width: 80%;
+}
+
+.dashboard .dashboard-content {
+    margin-left: 40px;
+    margin-right: 80px;
+}
+
+.dashboard .dashboard-content .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard .dashboard-items .space button {
+    background: rgb(255, 100, 62);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 100, 62, 1) 0%,
+        rgba(35, 56, 187, 1) 85%
+    );
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.dashboard .dashboard-items .item {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard .dashboard-items .item .btn-dashboard {
+    margin-left: 10px;
+}
+
+.dashboard .dashboard-items .item .space {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard .dashboard-items .item .space p {
+    margin-left: 15px;
+}
+
+.dashboard .dashboard-items .list-table {
+    display: flex;
+}

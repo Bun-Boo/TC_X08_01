@@ -1,0 +1,77 @@
+.fixed-header {
+    background-color: #323232;
+    color: #fff;
+    padding-top: 10px;
+    position: sticky;
+    top: -10px;
+    z-index: 1;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.navbar ul {
+    display: flex;
+    margin-left: 50px;
+}
+
+.navbar .actions {
+    display: flex;
+    margin-left: auto;
+}
+
+.navbar ul a {
+    color: #ffffff;
+    font-style: italic;
+
+    padding: 8px 14px;
+}
+
+.navbar ul a:hover {
+    text-decoration: underline;
+}
+
+.navbar .icon-contact {
+    color: #ffffff;
+    font-size: 3.2rem;
+}
+
+.navbar .action-lang {
+    margin: 0 20px;
+}
+
+.navbar .action-lang a {
+    margin-left: 5px;
+    color: #ffffff;
+}
+
+.navbar .action-btn {
+    padding: 13px 16px;
+    margin-left: 18px;
+    border-radius: 8px;
+}
+
+.navbar .actions .search {
+    position: relative;
+    color: #ffffff;
+}
+
+.navbar .actions .search input {
+    padding: 5px 0px 5px 30px;
+    border: none;
+    background-color: rgb(80, 80, 255);
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.navbar .actions .search input::placeholder {
+    color: #ffffff;
+}
+
+.navbar .actions .search .icon-search {
+    position: absolute;
+    left: 5px;
+}
