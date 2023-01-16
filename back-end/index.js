@@ -1,13 +1,12 @@
 import express from "express";
-import TestRouters from "./routers/test.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { errorHandler } from "./middleWare/errorMiddleware.js"
-import userRoute from "./routers/User.js"
+import authRouter from "./routers/Auth.js";
+import userRouter from "./routers/User.js"
 import dotenv from "dotenv";
-import todoRouters from "./routes/todos.js";
+import todoRouters from "./routers/todos.js"
 const app = express();
 dotenv.config();
 
@@ -16,7 +15,6 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({extended : false}))
 app.use(bodyParser.json())
-app.use(errorHandler);
 
 const connect = () =>
   mongoose
@@ -31,8 +29,8 @@ mongoose.set("strictQuery", true);
 app.use(express.json());
 
 app.use("/api/todos", todoRouters);
-app.use("/api/test", TestRouters);
-app.use("/api/users",userRoute);
+app.use("/api/auth",authRouter);
+app.use("/api/users",userRouter);
 
 app.get("/",(req,res) => {
   res.send("Home Page")
@@ -48,7 +46,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 3000, () => {
   connect();
   console.log("Backend running");
 });
