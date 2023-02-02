@@ -5,40 +5,82 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../redux/thunks/auth.thunks";
-
+import {
+  loginUser,
+  loginWithGoogle,
+  loginWithFacebook,
+  logout
+} from "../redux/thunks/auth.thunks";
+// import { ColumnHeightOutlined } from "@ant-design/icons";
 const SignIn = () => {
 
   const Dispatch = useDispatch();
   const Navigate = useNavigate();
 
-  const [ email, setEmail] = useState('');
-  const [ password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
+  const handleLoginWithEmail = async (e) => {
     e.preventDefault();
     const newUser = {
       email: email,
-      password: password
-    }
+      password: password,
+    };
     try {
       if (!password || !email) {
         return toast.warning("Vui lòng không để trống dữ liệu!");
       }
+      Dispatch(loginUser(newUser));
+      Navigate("/");
     } catch (error) {
       toast.warning(error);
     }
-    Dispatch(loginUser(newUser));
-    Navigate("/");
-  }
+  };
 
+  const handleLoginWithGoogle = async(e) => {
+    e.preventDefault();
+    try {
+      Dispatch(loginWithGoogle());
+    } catch (error) {
+      toast.warning(error);
+    }
+    console.log("ok login google!")
+  
+  };
+
+  const handleLoginWithFacebook = async (e) => {
+    e.preventDefault();
+    try {
+      Dispatch(loginWithFacebook());
+    } catch (error) {
+      toast.warning(error);
+    }
+  };
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      Dispatch(logout());
+    } catch (error) {
+      toast.warning(error);
+    }
+  };
   return (
     <Container>
       <Wrapper>
         <Logo>LOGO</Logo>
-        <Form onSubmit={handleLogin}>
-          <Input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-          <Input type="password" name="" id="" placeholder="Mật khẩu" onChange={(e) => setPassword(e.target.value)}/>
+        <Form onSubmit={handleLoginWithEmail}>
+          <Input
+            type="text"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="password"
+            name=""
+            id=""
+            placeholder="Mật khẩu"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <Button>Đăng nhập</Button>
         </Form>
         <Span>
@@ -49,13 +91,20 @@ const SignIn = () => {
           <OtherSpan>Hoặc</OtherSpan>
           <Hr />
         </Other>
-        <ButtonOther>Đăng nhập bằng Google</ButtonOther>
-        <ButtonOther>Đăng nhập bằng Facebook</ButtonOther>
+        <ButtonOther onClick={handleLoginWithGoogle}>
+          Đăng nhập bằng Google
+        </ButtonOther>
+        <ButtonOther onClick={handleLoginWithFacebook}>
+          Đăng nhập bằng Facebook
+        </ButtonOther>
         <ButtonOther style={{ marginBottom: "50px" }}>
           Đăng nhập bằng Twitter
         </ButtonOther>
+        <ButtonOther onClick={handleLogout}>
+          Logout
+        </ButtonOther>
       </Wrapper>
-      <ToastContainer/>
+      <ToastContainer />
     </Container>
   );
 };
