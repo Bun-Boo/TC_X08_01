@@ -20,7 +20,7 @@ export default function AppHeader() {
         Tạo công việc mới
       </Button>
       <SelectButton id="status" value={filterStatus} onChange={updatedFilter}>
-        <option value="all">Tất cả</option>
+        <option value="all">Tất Cả</option>
         <option value="incomplete">Đang thực hiện</option>
         <option value="complete">Hoàn thành</option>
       </SelectButton>
