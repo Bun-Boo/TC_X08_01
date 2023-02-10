@@ -11,13 +11,19 @@ import asyncHandler from "express-async-handler";
     }
   }),
 
-  getUserById: asyncHandler(async (req, res) => {
-    const { email } = req.params;
+  getUserById: asyncHandler(async (req, res ,id) => {
+    id = req.params.id;
     try {
-      const user = await User.find({ email: email });
-      res.json({ dataParams: user }).status(200);
+      const user = await User.findOne({ _id : id });
+      const { password, ...newUser} = user._doc;
+      return res.status(200).json(newUser);
     } catch (error) {
-      res.status(500).json(error);
+      // res.status(500).json(error);
+      let errorMessage = 'User not found!';
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      throw new Error(errorMessage);
     }
   }),
   updateUserInformation: asyncHandler(async (req, res) => {
@@ -27,7 +33,6 @@ import asyncHandler from "express-async-handler";
       phone: req.body.phone,
     };
 
-    // verify info
     try {
       let result = await User.findOne({
         email: user.email,

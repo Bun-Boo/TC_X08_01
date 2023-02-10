@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import sliderImage from "./../images/hero.jpg";
@@ -13,30 +13,9 @@ import {
   SendOutlined,
   TwitterOutlined,
   YoutubeOutlined,
-} from "@ant-design/icons";
-import {removeUid } from "../redux/reducers/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+} from "@ant-design/icons"
 
 const Home = () => {
-
-  const dispatch = useDispatch();
-  const {isLogin , token } = useSelector(state => state.auth);
-  const [user, setUser] = useState(null);
-  console.log("isLogin is " + isLogin);
-  console.log("token: " + token)
-  useEffect(() => {
-    const handleGetUser = async () => {
-    const value = await AsyncStorage.getItem('user');
-    setUser(JSON.parse(value));
-    console.log("user: " + user);
-    };
-    handleGetUser();
-  },[]);
-
-  const handleLogout = async () => {
-      dispatch(removeUid());
-  }
 
   return (
     <Container>
@@ -56,8 +35,8 @@ const Home = () => {
               <Link className="link">Tài liệu</Link>
             </Li>
             <Li style={{ float: "right" }}>
-              <Link className="link text" onClick={handleLogout}>
-                Logout
+              <Link className="link text">
+                VI
               </Link>
             </Li>
             <Li style={{ float: "right" }}>

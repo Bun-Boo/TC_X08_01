@@ -9,11 +9,11 @@ import {
   loginUser,
   loginWithGoogle,
   loginWithFacebook,
-  logout
+  logout,
 } from "../redux/thunks/auth.thunks";
+
 // import { ColumnHeightOutlined } from "@ant-design/icons";
 const SignIn = () => {
-
   const Dispatch = useDispatch();
   const Navigate = useNavigate();
 
@@ -37,15 +37,14 @@ const SignIn = () => {
     }
   };
 
-  const handleLoginWithGoogle = async(e) => {
+  const handleLoginWithGoogle = async (e) => {
     e.preventDefault();
     try {
       Dispatch(loginWithGoogle());
     } catch (error) {
       toast.warning(error);
     }
-    console.log("ok login google!")
-  
+    console.log("ok login google!");
   };
 
   const handleLoginWithFacebook = async (e) => {
@@ -100,9 +99,7 @@ const SignIn = () => {
         <ButtonOther style={{ marginBottom: "50px" }}>
           Đăng nhập bằng Twitter
         </ButtonOther>
-        <ButtonOther onClick={handleLogout}>
-          Logout
-        </ButtonOther>
+        <ButtonOther onClick={handleLogout}>Logout</ButtonOther>
       </Wrapper>
       <ToastContainer />
     </Container>
