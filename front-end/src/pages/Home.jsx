@@ -13,7 +13,150 @@ import {
   SendOutlined,
   TwitterOutlined,
   YoutubeOutlined,
-} from "@ant-design/icons";
+} from "@ant-design/icons"
+
+const Home = () => {
+
+  return (
+    <Container>
+      <Header>
+        <HeaderLeft>
+          <Logo>LOGO</Logo>
+        </HeaderLeft>
+        <HeaderRight>
+          <Ul>
+            <Li>
+              <Link className="link">Về chúng tôi</Link>
+            </Li>
+            <Li>
+              <Link className="link">Tính năng</Link>
+            </Li>
+            <Li>
+              <Link className="link">Tài liệu</Link>
+            </Li>
+            <Li style={{ float: "right" }}>
+              <Link className="link text">
+                VI
+              </Link>
+            </Li>
+            <Li style={{ float: "right" }}>
+              <Link className="link text">|</Link>
+            </Li>
+            <Li style={{ float: "right" }}>
+              <Link className="link text">Liên hệ</Link>
+            </Li>
+          </Ul>
+        </HeaderRight>
+      </Header>
+      <Slider>
+        <Img src={sliderImage} />
+        <Trick>
+          <CheckCircleOutlined />
+          Tính năng ưu việt
+        </Trick>
+        <Trick1>
+          <CheckCircleOutlined />
+          Dễ dàng sử dụng
+        </Trick1>
+        <Trick2>
+          <CheckCircleOutlined />
+          Quản lý hiệu quả
+        </Trick2>
+        <SliderRight>
+          <Title>Bạn đang gặp khó khăn trong quản lý thời gian?</Title>
+          <Hr />
+          <Paragraph>
+            Chúng tôi cung cấp ứng dụng lập lịch, quản lý thời gian, công việc
+            cho cá nhân, tổ chức và hơn thế nữa.
+          </Paragraph>
+          <Box>
+            <Link to="/login">
+              <Button>Đăng nhập</Button>
+            </Link>
+            <Link to="/login">
+              <Icon>
+                <SendOutlined />
+              </Icon>
+            </Link>
+          </Box>
+        </SliderRight>
+      </Slider>
+      <About>
+        <Details>Về chúng tôi</Details>
+
+        <ListUs>
+          <ImgUs src={imagePersion} />
+          <ImgUs src={imagePersion} />
+          <ImgUs src={imagePersion} />
+          <ImgUs src={imagePersion} />
+        </ListUs>
+      </About>
+
+      <About>
+        <Details>Tính năng chính</Details>
+        <ListUs>
+          <ImgUs src={imagePersion} />
+          <ImgUs src={imagePersion} />
+          <ImgUs src={imagePersion} />
+          <ImgUs src={imagePersion} />
+        </ListUs>
+      </About>
+
+      <Content>
+        <ContentTitle>Bắt đầu ngay hôm nay!</ContentTitle>
+        <ContentSubtitle>
+          Lên kế hoạch và quản lý tất cả mọi thứ ngay từ bây giờ với nhóm của
+          bạn hoặc cho riêng bạn.
+        </ContentSubtitle>
+        <Link to="/login">
+          <ContentButton>Bắt đầu</ContentButton>
+        </Link>
+      </Content>
+
+      <Footer>
+        <Logo>LOGO</Logo>
+        <ListInfor>
+          <Infomation>
+            <Ftspan>Một sản phẩm của TC_X08_N01</Ftspan>
+            <Ftspan>Thiết kế bởi Hnim Uếih </Ftspan>
+          </Infomation>
+          <Infomation>
+            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
+            <Ftspan>Đây là thông tin</Ftspan>
+            <Ftspan>Vẫn là thông tin</Ftspan>
+          </Infomation>
+          <Infomation>
+            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
+            <Ftspan>Đây là thông tin</Ftspan>
+            <Ftspan>Vẫn là thông tin</Ftspan>
+          </Infomation>
+          <Infomation>
+            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
+            <Ftspan>Đây là thông tin</Ftspan>
+            <Ftspan>Vẫn là thông tin</Ftspan>
+          </Infomation>
+          <Infomation>
+            <Ftspan>Mạng xã hội</Ftspan>
+            <Ftspan>
+              <FacebookOutlined />
+              <TwitterOutlined />
+              <RedditOutlined />
+            </Ftspan>
+            <Ftspan>
+              <YoutubeOutlined />
+              <InstagramOutlined />
+              <LinkedinOutlined />
+            </Ftspan>
+          </Infomation>
+        </ListInfor>
+      </Footer>
+      <Circle>
+        <CaretUpOutlined />
+      </Circle>
+    </Container>
+  );
+};
+
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -278,143 +421,5 @@ const Circle = styled.div`
   z-index: 999;
   position: fixed;
 `;
-const Home = () => {
-  return (
-    <Container>
-      <Header>
-        <HeaderLeft>
-          <Logo>LOGO</Logo>
-        </HeaderLeft>
-        <HeaderRight>
-          <Ul>
-            <Li>
-              <Link className="link">Về chúng tôi</Link>
-            </Li>
-            <Li>
-              <Link className="link">Tính năng</Link>
-            </Li>
-            <Li>
-              <Link className="link">Tài liệu</Link>
-            </Li>
-            <Li style={{ float: "right" }}>
-              <Link className="link text">VI</Link>
-            </Li>
-            <Li style={{ float: "right" }}>
-              <Link className="link text">|</Link>
-            </Li>
-            <Li style={{ float: "right" }}>
-              <Link className="link text">Liên hệ</Link>
-            </Li>
-          </Ul>
-        </HeaderRight>
-      </Header>
-      <Slider>
-        <Img src={sliderImage} />
-        <Trick>
-          <CheckCircleOutlined />
-          Tính năng ưu việt
-        </Trick>
-        <Trick1>
-          <CheckCircleOutlined />
-          Dễ dàng sử dụng
-        </Trick1>
-        <Trick2>
-          <CheckCircleOutlined />
-          Quản lý hiệu quả
-        </Trick2>
-        <SliderRight>
-          <Title>Bạn đang gặp khó khăn trong quản lý thời gian?</Title>
-          <Hr />
-          <Paragraph>
-            Chúng tôi cung cấp ứng dụng lập lịch, quản lý thời gian, công việc
-            cho cá nhân, tổ chức và hơn thế nữa.
-          </Paragraph>
-          <Box>
-            <Link to="/login">
-              <Button>Đăng nhập</Button>
-            </Link>
-            <Link to="/login">
-              <Icon>
-                <SendOutlined />
-              </Icon>
-            </Link>
-          </Box>
-        </SliderRight>
-      </Slider>
-      <About>
-        <Details>Về chúng tôi</Details>
-
-        <ListUs>
-          <ImgUs src={imagePersion} />
-          <ImgUs src={imagePersion} />
-          <ImgUs src={imagePersion} />
-          <ImgUs src={imagePersion} />
-        </ListUs>
-      </About>
-
-      <About>
-        <Details>Tính năng chính</Details>
-        <ListUs>
-          <ImgUs src={imagePersion} />
-          <ImgUs src={imagePersion} />
-          <ImgUs src={imagePersion} />
-          <ImgUs src={imagePersion} />
-        </ListUs>
-      </About>
-
-      <Content>
-        <ContentTitle>Bắt đầu ngay hôm nay!</ContentTitle>
-        <ContentSubtitle>
-          Lên kế hoạch và quản lý tất cả mọi thứ ngay từ bây giờ với nhóm của
-          bạn hoặc cho riêng bạn.
-        </ContentSubtitle>
-        <Link to="/login">
-          <ContentButton>Bắt đầu</ContentButton>
-        </Link>
-      </Content>
-
-      <Footer>
-        <Logo>LOGO</Logo>
-        <ListInfor>
-          <Infomation>
-            <Ftspan>Một sản phẩm của TC_X08_N01</Ftspan>
-            <Ftspan>Thiết kế bởi Hnim Uếih </Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
-            <Ftspan>Đây là thông tin</Ftspan>
-            <Ftspan>Vẫn là thông tin</Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
-            <Ftspan>Đây là thông tin</Ftspan>
-            <Ftspan>Vẫn là thông tin</Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
-            <Ftspan>Đây là thông tin</Ftspan>
-            <Ftspan>Vẫn là thông tin</Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Mạng xã hội</Ftspan>
-            <Ftspan>
-              <FacebookOutlined />
-              <TwitterOutlined />
-              <RedditOutlined />
-            </Ftspan>
-            <Ftspan>
-              <YoutubeOutlined />
-              <InstagramOutlined />
-              <LinkedinOutlined />
-            </Ftspan>
-          </Infomation>
-        </ListInfor>
-      </Footer>
-      <Circle>
-        <CaretUpOutlined />
-      </Circle>
-    </Container>
-  );
-};
 
 export default Home;

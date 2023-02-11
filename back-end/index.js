@@ -1,22 +1,29 @@
 import express from "express";
-import TestRouters from "./routers/test.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import cookieSession from"cookie-session";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { errorHandler } from "./middleWare/errorMiddleware.js"
-import userRoute from "./routers/User.js"
+import authRouter from "./routers/Auth.js";
+import oauthRouter from "./routers/Oauth.js";
+import userRouter from "./routers/User.js";
 import dotenv from "dotenv";
-import todoRouters from "./routes/todos.js";
+import todoRouters from "./routers/todos.js";
+import passport from "passport";
 const app = express();
 dotenv.config();
 
-app.use(cors())
+app.use(
+  cookieSession({ name: "session", keys: ["TC_X08_01"], maxAge: 24 * 60 * 60 * 100 })
+);
+app.use(cors());
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({extended : false}))
 app.use(bodyParser.json())
-// app.use(errorHandler);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 const connect = () =>
   mongoose
@@ -31,12 +38,10 @@ mongoose.set("strictQuery", true);
 app.use(express.json());
 
 app.use("/api/todos", todoRouters);
-app.use("/api/test", TestRouters);
-app.use("/api/users",userRoute);
+app.use("/api/auth",authRouter);
+app.use("/api/users",userRouter);
+app.use("/auth",oauthRouter);
 
-app.get("/",(req,res) => {
-  res.send("Home Page")
-})
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;
@@ -48,7 +53,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 3000, () => {
   connect();
-  console.log("Backend running");
+  console.log("Backend running on port " + process.env.PORT);
 });
