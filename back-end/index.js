@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(errorHandler);
+// app.use(errorHandler);
 
 const connect = () =>
   mongoose

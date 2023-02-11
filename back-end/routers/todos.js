@@ -16,7 +16,7 @@ const router = express.Router();
 
 // cần verifyToken mới được add Todo : ( cần đăng nhập)
 router.post("/", authentication.verifyToken, addTodo);
-router.get("/gettodo/:id", authentication.verifyToken, getTodo);
+router.get("/gettodo", authentication.verifyToken, getTodo);
 router.get("/getbyid/:id", authentication.verifyToken, getTodoById);
 router.put("/:id", authentication.verifyToken, updateTodo);
 router.delete("/:id", authentication.verifyToken, deleteTodo);
