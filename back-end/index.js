@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import cookieSession from"cookie-session";
+import cookieSession from "cookie-session";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRouter from "./routers/Auth.js";
@@ -14,16 +14,21 @@ const app = express();
 dotenv.config();
 
 app.use(
-  cookieSession({ name: "session", keys: ["TC_X08_01"], maxAge: 24 * 60 * 60 * 100 })
+  cookieSession({
+    name: "session",
+    keys: ["TC_X08_01"],
+    maxAge: 24 * 60 * 60 * 100,
+  })
 );
 app.use(cors());
-app.use(express.json())
-app.use(cookieParser())
-app.use(express.urlencoded({extended : false}))
-app.use(bodyParser.json())
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(errorHandler);
 
 const connect = () =>
   mongoose
@@ -38,10 +43,9 @@ mongoose.set("strictQuery", true);
 app.use(express.json());
 
 app.use("/api/todos", todoRouters);
-app.use("/api/auth",authRouter);
-app.use("/api/users",userRouter);
-app.use("/auth",oauthRouter);
-
+app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter);
+app.use("/auth", oauthRouter);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;
