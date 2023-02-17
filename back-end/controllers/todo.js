@@ -8,9 +8,12 @@ export const addTodo = async (req, res, next) => {
   const newTodo = new Todo({ userId: req.user.id, ...req.body });
   try {
     const savedTodo = await newTodo.save();
-    res.status(200).json(savedTodo);
+    res.status(200).json({
+      code: 200,
+      arraylength: [savedTodo].length,
+      data: [savedTodo],
+    });
   } catch (error) {
-    console.log("loi cmmr");
     next(error);
   }
 };
@@ -27,7 +30,11 @@ export const updateTodo = async (req, res, next) => {
         new: true,
       }
     );
-    res.status(200).json(updateTodo);
+    res.status(200).json({
+      code: 200,
+      arraylength: [updateTodo].length,
+      data: [updateTodo],
+    });
   } else {
     return next(createError(403, "Bạn chỉ có thể cập nhật todo của mình"));
   }
@@ -38,7 +45,10 @@ export const deleteTodo = async (req, res, next) => {
   if (!todo) return next(createError(404, "todo not found"));
   if (req.user.id === todo.userId) {
     await Todo.findByIdAndDelete(req.params.id);
-    res.status(200).json("todo deleted");
+    res.status(200).json({
+      code: 200,
+      message: "Xóa thành công!",
+    });
   } else {
     return next(createError(403, "Bạn chỉ có thể xóa todo của mình"));
   }
@@ -46,7 +56,11 @@ export const deleteTodo = async (req, res, next) => {
 export const getTodo = async (req, res, next) => {
   try {
     const todo = await Todo.find();
-    res.status(200).json(todo);
+    res.status(200).json({
+      code: 200,
+      arraylength: todo.length,
+      data: todo,
+    });
   } catch (error) {
     next(error);
   }
@@ -54,7 +68,11 @@ export const getTodo = async (req, res, next) => {
 export const getTodoById = async (req, res, next) => {
   try {
     const todo = await Todo.findById(req.params.id);
-    res.status(200).json(todo);
+    res.status(200).json({
+      code: 200,
+      arraylength: [todo].length,
+      data: [todo],
+    });
   } catch (error) {
     next(error);
   }
@@ -66,7 +84,11 @@ export const getByPriority = async (req, res, next) => {
 
   try {
     const todos = await Todo.find({ priority: { $in: priority } });
-    res.status(200).json(todos);
+    res.status(200).json({
+      code: 200,
+      arraylength: todos.length,
+      data: todos,
+    });
   } catch (error) {
     next(error);
   }
@@ -77,7 +99,11 @@ export const getStatus = async (req, res, next) => {
   const status = req.query.status;
   try {
     const todos = await Todo.find({ status: { $in: status } });
-    res.status(200).json(todos);
+    res.status(200).json({
+      code: 200,
+      arraylength: todos.length,
+      data: todos,
+    });
   } catch (error) {
     next(error);
   }
@@ -93,6 +119,10 @@ export const search = async (req, res, next) => {
         $options: "i",
       },
     });
-    res.status(200).json(todos);
+    res.status(200).json({
+      code: 200,
+      arraylength: todos.length,
+      data: todos,
+    });
   } catch (error) {}
 };

@@ -13,10 +13,9 @@ import {
   SendOutlined,
   TwitterOutlined,
   YoutubeOutlined,
-} from "@ant-design/icons"
+} from "@ant-design/icons";
 
 const Home = () => {
-
   return (
     <Container>
       <Header>
@@ -29,15 +28,15 @@ const Home = () => {
               <Link className="link">Về chúng tôi</Link>
             </Li>
             <Li>
-              <Link className="link">Tính năng</Link>
+              <Link className="link" to="listtodo">
+                Tính năng
+              </Link>
             </Li>
             <Li>
               <Link className="link">Tài liệu</Link>
             </Li>
             <Li style={{ float: "right" }}>
-              <Link className="link text">
-                VI
-              </Link>
+              <Link className="link text">VI</Link>
             </Li>
             <Li style={{ float: "right" }}>
               <Link className="link text">|</Link>
