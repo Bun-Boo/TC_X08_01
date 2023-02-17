@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import ListTodo from "./list-todo/ListTodo";
+import ListTodo from "./components/ListTodo";
 import TestPage from "./pages/TestPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
