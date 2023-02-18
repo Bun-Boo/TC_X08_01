@@ -4,10 +4,9 @@ import App from "./App";
 // import "./list-todo/styles/GlobalStyles.css";
 import "./components/styles/GlobalStyles.css";
 import { Provider } from "react-redux";
-import { store } from "./list-todo/App/Sotre";
-import { Provider } from "react-redux";
-import store from "./redux/store";
 // import { store } from "./list-todo/App/Sotre";
+// import store from "./redux/store";
+// // import { store } from "./list-todo/App/Sotre";
 import { store } from "./components/App/Sotre";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

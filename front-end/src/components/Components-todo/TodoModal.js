@@ -31,7 +31,12 @@ const dropin = {
 
 function TodoModal({ type, modalOpen, setModalOpen, todo }) {
   const [title, setTitle] = useState("");
+  const [details, setDetails] = useState("");
   const [status, setStauts] = useState("incomplete");
+  const [priority, setPriority] = useState("normal");
+  const [dateStart, setDateStart] = useState("");
+
+  const [dateEnd, setDateEnd] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,30 +51,44 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    if (title === "") {
-      toast.error("Please enter a title.");
+    if (title === "" || status === "") {
+      toast.error("Hãy nhập tất cả các thông tin !");
       return;
     }
-    if (title && status) {
+    if (title && status && dateStart && dateEnd) {
       if (type === "add") {
         dispatch(
           addTodo({
             id: uuid(),
             title,
+            details,
             status,
-            time: new Date().toLocaleDateString(),
+            priority,
+            dateStart,
+            dateEnd,
+            // time: new Date().toLocaleDateString(),
           })
         );
         toast.success("Thêm thành công");
+
         setModalOpen(false);
       }
       if (type === "update") {
-        if (todo.title !== title || todo.status !== status) {
+        if (
+          todo.title !== title ||
+          todo.status !== status ||
+          todo.dateStart ||
+          todo.dateEnd
+        ) {
           dispatch(
             updateTodo({
               ...todo,
               title,
+              details,
               status,
+              priority,
+              dateStart,
+              dateEnd,
             })
           );
         } else {
@@ -77,6 +96,12 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
           return;
         }
       }
+      setDateEnd("");
+      setDateStart("");
+      setPriority("");
+      setStauts("");
+      setDetails("");
+      setTitle("");
       setModalOpen(false);
     }
   };
@@ -123,18 +148,67 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
                 />
               </label>
 
+              <label htmlFor="details">
+                Chi tiết công việc
+                <input
+                  value={details}
+                  type="text"
+                  id="details"
+                  onChange={(e) => setDetails(e.target.value)}
+                />
+              </label>
+
               <label htmlFor="status">
                 Quá trình
                 <select
                   name="status"
                   id="status"
                   value={status}
+                  placeholder="Status...."
                   onChange={(e) => setStauts(e.target.value)}
                 >
                   <option value="incomplete">Đang thực hiện</option>
                   <option value="complete">Hoàn thành</option>
+                  <option value="cancel">Huỷ</option>
                 </select>
               </label>
+
+              <label htmlFor="priority">
+                Mức độ ưu tiên
+                <select
+                  name="priority"
+                  id="priority"
+                  value={priority}
+                  onChange={(e) => setPriority(e.target.value)}
+                >
+                  <option value="normal">Bình thường</option>
+                  <option value="important">Quan trọng</option>
+                  <option value="urgent">Khẩn cấp</option>
+                </select>
+              </label>
+
+              <label htmlFor="time-start">
+                Ngày bắt đầu
+                <input
+                  type="date"
+                  id="time-start"
+                  name="time-start"
+                  value={dateStart}
+                  onChange={(e) => setDateStart(e.target.value)}
+                />
+              </label>
+
+              <label htmlFor="time-start">
+                Ngày kết thúc
+                <input
+                  type="date"
+                  id="time-end"
+                  name="time-end"
+                  value={dateEnd}
+                  onChange={(e) => setDateEnd(e.target.value)}
+                />
+              </label>
+
               <div className={styles.buttonContainer}>
                 <Button type="submit" variant="primary">
                   {type === "update" ? "chỉnh sửa" : "Thêm"} công việc

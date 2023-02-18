@@ -2,7 +2,7 @@
 
 .item {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 	padding: 1rem;
 	background: var(--white);
@@ -45,24 +45,80 @@
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+	flex:1;
+}
+.fl_c {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	flex:1;
+	margin-left: 3rem;
+    width: 500px;
+}
+.fl {
+	display: flex;
+	overflow: hidden;
 }
 .todoText {
 	word-break: break-all;
 	font-weight: 500;
 	font-size: 1.4rem;
 	color: var(--black-2);
-
+	padding: 0.5rem;
+	
 	&--completed {
 		text-decoration: line-through;
 		opacity: 0.7;
 	}
+	&--expand{
+		--max: 4;
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient:vertical ;
+		-webkit-line-clamp: var(--max);
+	}
+}
+.readtext {
+	font-size: 1.5rem;
+	margin-top: 10px;
+	cursor: pointer;
+	margin-left: 0.5rem;
+	opacity: 0.8;
+	&:hover{
+		color: red;
+	}
 }
 .time {
 	display: block;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	font-weight: 300;
 	margin-top: -0.2rem;
+	padding: 0.5rem;
 	color: var(--black-2);
+}
+.important {
+	display: block;
+	font-size: 1.5rem;
+	font-weight: 300;
+	margin-top: -0.2rem;
+	padding: 0.5rem;
+	color: var(--important);
+}
+.green {
+	display: block;
+	font-size: 1.5rem;
+	font-weight: 300;
+	margin-top: -0.2rem;
+	padding: 0.5rem;
+	color: var(--green);
+}
+.urgent {
+	display: block;
+	font-size: 1.5rem;
+	font-weight: 300;
+	margin-top: -0.2rem;
+	padding: 0.5rem;
+	color: var(--urgent);
 }
 .todoActions {
 	display: flex;
