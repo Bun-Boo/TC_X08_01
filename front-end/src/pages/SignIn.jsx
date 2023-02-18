@@ -31,7 +31,7 @@ const SignIn = () => {
         return toast.warning("Vui lòng không để trống dữ liệu!");
       }
       Dispatch(loginUser(newUser));
-      Navigate("/");
+      Navigate("/listtodo");
     } catch (error) {
       toast.warning(error);
     }
