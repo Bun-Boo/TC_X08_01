@@ -5,19 +5,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
-import ListTodo from "./components/ListTodo";
+// import ListTodo from "./components/ListTodo";
+import Todo from "./pages/Todo";
+import SettingUser from "./components/SettingUser/SettingUser";
 
 function App() {
-  // const { isLogin, token } = useSelector((state) => state?.auth);
-  // console.log(token);
-  // const [user, setUser] = useState(null);
-  // useEffect(() => {
-  //   const handleGetUser = async () => {
-  //     await AsyncStorage.getItem("user").then((value) => setUser(value));
-  //     console.log(user);
-  //   };
-  //   handleGetUser();
-  // }, [token]);
+  const { isLogin, token } = useSelector((state) => state?.auth);
+  console.log(token);
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const handleGetUser = async () => {
+      await AsyncStorage.getItem("user").then((value) => setUser(value));
+      console.log(user);
+    };
+    handleGetUser();
+  }, [token]);
 
   return (
     <div className="App">
@@ -32,7 +34,8 @@ function App() {
             <Route path="login" element={<SignIn />} />
             <Route index element={<Home />} />
             <Route path="register" element={<SignUp />} />
-            <Route path="listtodo" element={<ListTodo />} />
+            <Route path="listtodo" element={<Todo />} />
+            <Route path="setting" element={<SettingUser />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -6,47 +6,15 @@ import imagePersion from "./../images/Image 2.png";
 import {
   CaretUpOutlined,
   CheckCircleOutlined,
-  FacebookOutlined,
-  InstagramOutlined,
-  LinkedinOutlined,
-  RedditOutlined,
   SendOutlined,
-  TwitterOutlined,
-  YoutubeOutlined,
 } from "@ant-design/icons";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   return (
     <Container>
-      <Header>
-        <HeaderLeft>
-          <Logo>LOGO</Logo>
-        </HeaderLeft>
-        <HeaderRight>
-          <Ul>
-            <Li>
-              <Link className="link">Về chúng tôi</Link>
-            </Li>
-            <Li>
-              <Link className="link" to="listtodo">
-                Tính năng
-              </Link>
-            </Li>
-            <Li>
-              <Link className="link">Tài liệu</Link>
-            </Li>
-            <Li style={{ float: "right" }}>
-              <Link className="link text">VI</Link>
-            </Li>
-            <Li style={{ float: "right" }}>
-              <Link className="link text">|</Link>
-            </Li>
-            <Li style={{ float: "right" }}>
-              <Link className="link text">Liên hệ</Link>
-            </Li>
-          </Ul>
-        </HeaderRight>
-      </Header>
+      <Header />
       <Slider>
         <Img src={sliderImage} />
         <Trick>
@@ -112,43 +80,7 @@ const Home = () => {
         </Link>
       </Content>
 
-      <Footer>
-        <Logo>LOGO</Logo>
-        <ListInfor>
-          <Infomation>
-            <Ftspan>Một sản phẩm của TC_X08_N01</Ftspan>
-            <Ftspan>Thiết kế bởi Hnim Uếih </Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
-            <Ftspan>Đây là thông tin</Ftspan>
-            <Ftspan>Vẫn là thông tin</Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
-            <Ftspan>Đây là thông tin</Ftspan>
-            <Ftspan>Vẫn là thông tin</Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Thông tin linh tinh các thứ</Ftspan>
-            <Ftspan>Đây là thông tin</Ftspan>
-            <Ftspan>Vẫn là thông tin</Ftspan>
-          </Infomation>
-          <Infomation>
-            <Ftspan>Mạng xã hội</Ftspan>
-            <Ftspan>
-              <FacebookOutlined />
-              <TwitterOutlined />
-              <RedditOutlined />
-            </Ftspan>
-            <Ftspan>
-              <YoutubeOutlined />
-              <InstagramOutlined />
-              <LinkedinOutlined />
-            </Ftspan>
-          </Infomation>
-        </ListInfor>
-      </Footer>
+      <Footer />
       <Circle>
         <CaretUpOutlined />
       </Circle>
@@ -161,48 +93,7 @@ const Container = styled.div`
   height: 100vh;
   position: relative;
 `;
-const Header = styled.div`
-  height: 70px;
-  width: 100%;
-  background-color: rgba(174, 183, 185, 0.34);
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  position: fixed;
-`;
-const Logo = styled.h1`
-  margin-left: 60px;
-  margin-right: 60px;
-  font-size: 28px;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-`;
-const Ul = styled.ul`
-  list-style-type: none;
-  overflow: hidden;
-  padding: 0;
-  margin-right: 28px;
-`;
-const Li = styled.li`
-  float: left;
-  cursor: pointer;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  margin-right: 20px;
-  text-decoration: none;
-  font-size: 20px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-`;
-const HeaderLeft = styled.div``;
-const HeaderRight = styled.div`
-  flex: 5;
-`;
+
 const Slider = styled.div`
   width: 100%;
   height: 90%;
@@ -372,34 +263,6 @@ const ContentButton = styled.button`
     cursor: pointer;
     transition: all 0.25s linear;
   }
-`;
-const Footer = styled.div`
-  background-color: #000;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-left: 20px;
-  padding-top: 30px;
-  padding-bottom: 80px;
-`;
-const ListInfor = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  width: 100%;
-  margin-top: 10px;
-`;
-const Infomation = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  width: 20%;
-`;
-const Ftspan = styled.span`
-  margin-bottom: 20px;
-  font-size: 16px;
 `;
 
 const Circle = styled.div`
